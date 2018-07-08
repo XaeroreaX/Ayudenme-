@@ -1,0 +1,9 @@
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\bin\Debug\elMain.exe.config
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\bin\Debug\elMain.exe
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\bin\Debug\elMain.pdb
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\bin\Debug\entidades.dll
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\bin\Debug\entidades.pdb
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\obj\Debug\elMain.csprojResolveAssemblyReference.cache
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\obj\Debug\elMain.csproj.CoreCompileInputs.cache
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\obj\Debug\elMain.exe
+C:\Users\jmpit\Desktop\javier.Martin.Pitameglia.Evaluacion\elMain\obj\Debug\elMain.pdb
