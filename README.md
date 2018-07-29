@@ -7,52 +7,59 @@ aqui colgare mis problemas
 
 
 
-int V_fileToListText(char path[], ArrayList* ventaList)
+int Song_fileToListText(char path[], ArrayList* playList)
 {
     FILE* pFile;
 
     int returnAux = DENIED;
-    char idVenta[50], nombre[100], codigo[100], idCliente[50];
-    sVenta* venta;
+    char id[101], nombre[101], albun[101], artista[101], visitas[101], duracionSeg[101];
+    SSong* music;
 
     pFile = fopen(path, "r");
 
-    if(ventaList == NULL || pFile == NULL) return returnAux;
+    if(playList == NULL || pFile == NULL) return returnAux;
 
-    fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n]\n", idVenta, nombre, codigo, idCliente);
+    fgets(nombre, 101, pFile);
 
     while(!feof(pFile))
     {
-        fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n]\n", idVenta, nombre, codigo, idCliente);
-        venta = V_contructParamVenta(atoi(idVenta), nombre, codigo, atoi(idCliente));
+        fscanf(pFile, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",id, nombre, albun, artista, visitas, duracionSeg);
+        music = Song_contructor(atoi(id), nombre, artista,albun, atoi(duracionSeg));
+        music->visit = visitas;
 
-        returnAux = ventaList->add(ventaList, venta);
+        returnAux = playList->add(playList, music);
     }
+
+    fclose(pFile);
 
     return returnAux;
 }
 
-int V_listToFileText(char path[], ArrayList* ventaList)
+
+
+int Song_listToFileText(char path[], ArrayList* playList)
 {
     FILE* pFIle;
     int i, returnAux = DENIED;
-    sVenta* venta;
+    SSong* music;
 
     pFIle = fopen(path, "w+");
 
-    if(ventaList == NULL || pFIle == NULL) return returnAux;
+    if(playList == NULL || pFIle == NULL) return returnAux;
 
-    fprintf(pFIle, "id,nombre,codigo,idCliente\n");
+    fprintf(pFIle, "id,nombre,albun,artista,visitas,durationSeg\n");
 
-    for(i = 0; i < ventaList->len(ventaList); i++)
+    for(i = 0; i < playList->len(playList); i++)
     {
-        venta = (sVenta*) ventaList->get(ventaList, i);
-        if(venta != NULL)
+        music = (SSong*) playList->get(playList, i);
+        if(music != NULL)
         {
-            fprintf(pFIle, "%d,%s,%s,%d\n", venta->idVenta, venta->nombre, venta->codigo, venta->idCliente);
+            fprintf(pFIle, "%d,%s,%s,%s,%d,%d\n", music->id, music->name, music->Albun, music->Artist, music->visit,music->durationSeg);
             returnAux = OK;
         }
     }
+
+    fclose(pFIle);
 
     return returnAux;
 }
